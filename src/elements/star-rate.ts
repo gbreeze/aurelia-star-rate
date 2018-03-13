@@ -47,7 +47,6 @@ export class StarRate {
     }
 
     this.mouseRate = index + 1 - (this.showHalfStar ? 0.5 : 0);
-    console.log(this.mouseRate);
   }
 
   setRate(index: number) {
