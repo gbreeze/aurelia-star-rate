@@ -8,6 +8,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 define(["require", "exports", "aurelia-framework", "aurelia-event-aggregator", "./StarRateClicked"], function (require, exports, aurelia_framework_1, aurelia_event_aggregator_1, StarRateClicked_1) {
+    Object.defineProperty(exports, "__esModule", { value: true });
     var StarRate = (function () {
         function StarRate(ea) {
             this.ea = ea;
@@ -31,7 +32,6 @@ define(["require", "exports", "aurelia-framework", "aurelia-event-aggregator", "
                 this.showHalfStar = currentMousePosition < (this.icons[calculatedIndex].clientWidth / 2);
             }
             this.mouseRate = index + 1 - (this.showHalfStar ? 0.5 : 0);
-            console.log(this.mouseRate);
         };
         StarRate.prototype.setRate = function (index) {
             if (this.readOnly) {
@@ -74,68 +74,68 @@ define(["require", "exports", "aurelia-framework", "aurelia-event-aggregator", "
             enumerable: true,
             configurable: true
         });
+        __decorate([
+            aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.twoWay }),
+            __metadata("design:type", Number)
+        ], StarRate.prototype, "rate", void 0);
+        __decorate([
+            aurelia_framework_1.bindable,
+            __metadata("design:type", Number)
+        ], StarRate.prototype, "maxRate", void 0);
+        __decorate([
+            aurelia_framework_1.bindable,
+            __metadata("design:type", Boolean)
+        ], StarRate.prototype, "readOnly", void 0);
+        __decorate([
+            aurelia_framework_1.bindable,
+            __metadata("design:type", String)
+        ], StarRate.prototype, "color", void 0);
+        __decorate([
+            aurelia_framework_1.bindable,
+            __metadata("design:type", Boolean)
+        ], StarRate.prototype, "rtl", void 0);
+        __decorate([
+            aurelia_framework_1.bindable,
+            __metadata("design:type", String)
+        ], StarRate.prototype, "fullStar", void 0);
+        __decorate([
+            aurelia_framework_1.bindable,
+            __metadata("design:type", String)
+        ], StarRate.prototype, "halfStar", void 0);
+        __decorate([
+            aurelia_framework_1.bindable,
+            __metadata("design:type", String)
+        ], StarRate.prototype, "emptyStar", void 0);
+        __decorate([
+            aurelia_framework_1.bindable,
+            __metadata("design:type", Object)
+        ], StarRate.prototype, "clicked", void 0);
+        __decorate([
+            aurelia_framework_1.children('i'),
+            __metadata("design:type", Array)
+        ], StarRate.prototype, "icons", void 0);
+        __decorate([
+            aurelia_framework_1.computedFrom('mouseRate', 'rate'),
+            __metadata("design:type", Object),
+            __metadata("design:paramtypes", [])
+        ], StarRate.prototype, "currentValue", null);
+        __decorate([
+            aurelia_framework_1.computedFrom('currentValue'),
+            __metadata("design:type", Object),
+            __metadata("design:paramtypes", [])
+        ], StarRate.prototype, "hasFloatingPoint", null);
+        __decorate([
+            aurelia_framework_1.computedFrom('currentValue'),
+            __metadata("design:type", Object),
+            __metadata("design:paramtypes", [])
+        ], StarRate.prototype, "fixedPoint", null);
+        StarRate = __decorate([
+            aurelia_framework_1.customElement('au-star-rate'),
+            aurelia_framework_1.inject(aurelia_event_aggregator_1.EventAggregator),
+            __metadata("design:paramtypes", [aurelia_event_aggregator_1.EventAggregator])
+        ], StarRate);
         return StarRate;
     }());
-    __decorate([
-        aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.twoWay }),
-        __metadata("design:type", Number)
-    ], StarRate.prototype, "rate", void 0);
-    __decorate([
-        aurelia_framework_1.bindable,
-        __metadata("design:type", Number)
-    ], StarRate.prototype, "maxRate", void 0);
-    __decorate([
-        aurelia_framework_1.bindable,
-        __metadata("design:type", Boolean)
-    ], StarRate.prototype, "readOnly", void 0);
-    __decorate([
-        aurelia_framework_1.bindable,
-        __metadata("design:type", String)
-    ], StarRate.prototype, "color", void 0);
-    __decorate([
-        aurelia_framework_1.bindable,
-        __metadata("design:type", Boolean)
-    ], StarRate.prototype, "rtl", void 0);
-    __decorate([
-        aurelia_framework_1.bindable,
-        __metadata("design:type", String)
-    ], StarRate.prototype, "fullStar", void 0);
-    __decorate([
-        aurelia_framework_1.bindable,
-        __metadata("design:type", String)
-    ], StarRate.prototype, "halfStar", void 0);
-    __decorate([
-        aurelia_framework_1.bindable,
-        __metadata("design:type", String)
-    ], StarRate.prototype, "emptyStar", void 0);
-    __decorate([
-        aurelia_framework_1.bindable,
-        __metadata("design:type", Object)
-    ], StarRate.prototype, "clicked", void 0);
-    __decorate([
-        aurelia_framework_1.children('i'),
-        __metadata("design:type", Array)
-    ], StarRate.prototype, "icons", void 0);
-    __decorate([
-        aurelia_framework_1.computedFrom('mouseRate', 'rate'),
-        __metadata("design:type", Object),
-        __metadata("design:paramtypes", [])
-    ], StarRate.prototype, "currentValue", null);
-    __decorate([
-        aurelia_framework_1.computedFrom('currentValue'),
-        __metadata("design:type", Object),
-        __metadata("design:paramtypes", [])
-    ], StarRate.prototype, "hasFloatingPoint", null);
-    __decorate([
-        aurelia_framework_1.computedFrom('currentValue'),
-        __metadata("design:type", Object),
-        __metadata("design:paramtypes", [])
-    ], StarRate.prototype, "fixedPoint", null);
-    StarRate = __decorate([
-        aurelia_framework_1.customElement('au-star-rate'),
-        aurelia_framework_1.inject(aurelia_event_aggregator_1.EventAggregator),
-        __metadata("design:paramtypes", [aurelia_event_aggregator_1.EventAggregator])
-    ], StarRate);
     exports.StarRate = StarRate;
 });
 
