@@ -10,31 +10,26 @@ export class StarRate {
   @bindable({ defaultBindingMode: bindingMode.twoWay }) rate: number;
 
   @bindable maxRate: number;
-  @bindable readOnly: boolean = true;
-  @bindable color: string = '#753B85';
-  @bindable rtl: boolean = false;
+  @bindable readOnly = true;
+  @bindable color = '#753B85';
+  @bindable rtl = false;
 
-
-
-  @bindable fullStar: string = 'au-star au-full-star';
+  @bindable fullStar = 'au-star au-full-star';
   @bindable halfStar: string | null = null;
-  @bindable emptyStar: string = 'au-star au-empty-star';
+  @bindable emptyStar = 'au-star au-empty-star';
 
   @bindable clicked;
 
-
-
-
   @children('i') icons: Array<HTMLElement>;
   private mouseRate: number = -1;
-  private showHalfStar: boolean = false;
+  private showHalfStar = false;
+
 
   constructor(private ea: EventAggregator) {
   }
 
 
   mouseMove(event, index) {
-
     if (this.readOnly) {
       return;
     }
@@ -49,7 +44,8 @@ export class StarRate {
     this.mouseRate = index + 1 - (this.showHalfStar ? 0.5 : 0);
   }
 
-  setRate(index: number) {
+  setRate(event, index: number) {
+    event.stopPropagation();
 
     if (this.readOnly) {
       return;
@@ -73,7 +69,7 @@ export class StarRate {
 
   @computedFrom('mouseRate', 'rate')
   get currentValue() {
-    const x = (this.mouseRate != -1 ? this.mouseRate : this.rate);
+    const x = (this.mouseRate !== -1 ? this.mouseRate : this.rate);
 
     return x;
   }
