@@ -15,7 +15,7 @@ export declare class StarRate {
     private showHalfStar;
     constructor(ea: EventAggregator);
     mouseMove(event: any, index: any): void;
-    setRate(index: number): void;
+    setRate(event: any, index: number): void;
     mouseLeft(): void;
     readonly currentValue: number;
     readonly hasFloatingPoint: boolean;

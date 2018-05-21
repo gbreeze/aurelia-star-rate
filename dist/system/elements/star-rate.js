@@ -47,7 +47,8 @@ System.register(["aurelia-framework", "aurelia-event-aggregator", "./StarRateCli
                     }
                     this.mouseRate = index + 1 - (this.showHalfStar ? 0.5 : 0);
                 };
-                StarRate.prototype.setRate = function (index) {
+                StarRate.prototype.setRate = function (event, index) {
+                    event.stopPropagation();
                     if (this.readOnly) {
                         return;
                     }
@@ -67,7 +68,7 @@ System.register(["aurelia-framework", "aurelia-event-aggregator", "./StarRateCli
                 };
                 Object.defineProperty(StarRate.prototype, "currentValue", {
                     get: function () {
-                        var x = (this.mouseRate != -1 ? this.mouseRate : this.rate);
+                        var x = (this.mouseRate !== -1 ? this.mouseRate : this.rate);
                         return x;
                     },
                     enumerable: true,
@@ -98,19 +99,19 @@ System.register(["aurelia-framework", "aurelia-event-aggregator", "./StarRateCli
                 ], StarRate.prototype, "maxRate", void 0);
                 __decorate([
                     aurelia_framework_1.bindable,
-                    __metadata("design:type", Boolean)
+                    __metadata("design:type", Object)
                 ], StarRate.prototype, "readOnly", void 0);
                 __decorate([
                     aurelia_framework_1.bindable,
-                    __metadata("design:type", String)
+                    __metadata("design:type", Object)
                 ], StarRate.prototype, "color", void 0);
                 __decorate([
                     aurelia_framework_1.bindable,
-                    __metadata("design:type", Boolean)
+                    __metadata("design:type", Object)
                 ], StarRate.prototype, "rtl", void 0);
                 __decorate([
                     aurelia_framework_1.bindable,
-                    __metadata("design:type", String)
+                    __metadata("design:type", Object)
                 ], StarRate.prototype, "fullStar", void 0);
                 __decorate([
                     aurelia_framework_1.bindable,
@@ -118,7 +119,7 @@ System.register(["aurelia-framework", "aurelia-event-aggregator", "./StarRateCli
                 ], StarRate.prototype, "halfStar", void 0);
                 __decorate([
                     aurelia_framework_1.bindable,
-                    __metadata("design:type", String)
+                    __metadata("design:type", Object)
                 ], StarRate.prototype, "emptyStar", void 0);
                 __decorate([
                     aurelia_framework_1.bindable,

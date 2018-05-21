@@ -35,7 +35,8 @@ var StarRate = (function () {
         }
         this.mouseRate = index + 1 - (this.showHalfStar ? 0.5 : 0);
     };
-    StarRate.prototype.setRate = function (index) {
+    StarRate.prototype.setRate = function (event, index) {
+        event.stopPropagation();
         if (this.readOnly) {
             return;
         }
@@ -55,7 +56,7 @@ var StarRate = (function () {
     };
     Object.defineProperty(StarRate.prototype, "currentValue", {
         get: function () {
-            var x = (this.mouseRate != -1 ? this.mouseRate : this.rate);
+            var x = (this.mouseRate !== -1 ? this.mouseRate : this.rate);
             return x;
         },
         enumerable: true,
@@ -86,19 +87,19 @@ var StarRate = (function () {
     ], StarRate.prototype, "maxRate", void 0);
     __decorate([
         aurelia_framework_1.bindable,
-        __metadata("design:type", Boolean)
+        __metadata("design:type", Object)
     ], StarRate.prototype, "readOnly", void 0);
     __decorate([
         aurelia_framework_1.bindable,
-        __metadata("design:type", String)
+        __metadata("design:type", Object)
     ], StarRate.prototype, "color", void 0);
     __decorate([
         aurelia_framework_1.bindable,
-        __metadata("design:type", Boolean)
+        __metadata("design:type", Object)
     ], StarRate.prototype, "rtl", void 0);
     __decorate([
         aurelia_framework_1.bindable,
-        __metadata("design:type", String)
+        __metadata("design:type", Object)
     ], StarRate.prototype, "fullStar", void 0);
     __decorate([
         aurelia_framework_1.bindable,
@@ -106,7 +107,7 @@ var StarRate = (function () {
     ], StarRate.prototype, "halfStar", void 0);
     __decorate([
         aurelia_framework_1.bindable,
-        __metadata("design:type", String)
+        __metadata("design:type", Object)
     ], StarRate.prototype, "emptyStar", void 0);
     __decorate([
         aurelia_framework_1.bindable,
