@@ -17,6 +17,7 @@ export declare class StarRate {
     mouseMove(event: any, index: any): void;
     setRate(event: any, index: number): void;
     mouseLeft(): void;
+    rateChanged(newValue: number, oldValue: number): void;
     readonly currentValue: number;
     readonly hasFloatingPoint: boolean;
     readonly fixedPoint: number;

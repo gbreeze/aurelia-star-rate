@@ -66,6 +66,12 @@ System.register(["aurelia-framework", "aurelia-event-aggregator", "./StarRateCli
                     this.showHalfStar = false;
                     this.mouseRate = -1;
                 };
+                StarRate.prototype.rateChanged = function (newValue, oldValue) {
+                    if (newValue === 0) {
+                        this.showHalfStar = false;
+                        this.mouseRate = -1;
+                    }
+                };
                 Object.defineProperty(StarRate.prototype, "currentValue", {
                     get: function () {
                         var x = (this.mouseRate !== -1 ? this.mouseRate : this.rate);
