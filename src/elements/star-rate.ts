@@ -66,6 +66,12 @@ export class StarRate {
     this.mouseRate = -1;
   }
 
+  rateChanged(newValue: number, oldValue: number) {
+    if (newValue === 0) {
+      this.showHalfStar = false;
+      this.mouseRate = -1;
+    }
+  }
 
   @computedFrom('mouseRate', 'rate')
   get currentValue() {
